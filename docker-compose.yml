@@ -8,9 +8,6 @@ services:
       POSTGRES_DB: userdb
     ports:
       - "5432:5432"
-    networks:
-      - app-network
-
   pm_user_management:
     build: .
     ports:
@@ -21,9 +18,3 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://userdb:5432/userdb
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
